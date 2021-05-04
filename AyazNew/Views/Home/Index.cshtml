@@ -2,10 +2,12 @@
 
 
         <!-- /.main-header -->
+@{ 
+    var baseController = ViewContext.Controller as AyazNew.Controllers.BaseController;
+    ViewBag.Title = "Kişiye Özel Tasarım Promosyon Ürünleri";
+}
 
-        <main id="content" class="content">
-
-            <section class="vc_row bg-cover bg-center fullheight d-flex align-items-center py-5 mt-5" data-row-bg="/Content/img/Slider2.jpeg">
+            <section class="vc_row bg-cover bg-center fullheight d-flex align-items-center py-5" data-row-bg="/Content/img/Slider2.jpeg">
 
                 <span class="row-bg-loader"></span>
 
@@ -17,7 +19,7 @@
 
                             <figure data-custom-animations="true"
                                     data-ca-options='{ "triggerHandler":"inview", "animationTarget":"all-childs", "duration":"1200", "startDelay": 250, "easing":"easeOutQuint", "direction":"forward", "initValues":{"scale":0.5, "opacity":0}, "animations":{"scale":1, "opacity":1} }'>
-                                <img width="190" height="112" src="~/assets/demo/misc/summer.png" alt="Summer">
+                                <img width="190" height="112" src="~/Content/img/Logo.png" alt="Summer">
                                 
                             </figure>
 
@@ -96,17 +98,17 @@
                                                     </div><!-- /.carousel-item -->
                                                     <div class="carousel-item">
                                                         <figure class="bg-cover bg-center" data-responsive-bg="true">
-                                                            <img class="invisible" src="~/Content/img/1.jpg" alt="Banner 1">
+                                                            <img class="invisible" src="~/Content/img/c1.jpg" alt="Banner 1">
                                                         </figure>
                                                     </div><!-- /.carousel-item -->
                                                     <div class="carousel-item">
                                                         <figure class="bg-cover bg-center" data-responsive-bg="true">
-                                                            <img class="invisible" src="~/Content/img/2.jpg" alt="Banner 1">
+                                                            <img class="invisible" src="~/Content/img/c2.jpg" alt="Banner 1">
                                                         </figure>
                                                     </div><!-- /.carousel-item -->
                                                     <div class="carousel-item">
                                                         <figure class="bg-cover bg-center" data-responsive-bg="true">
-                                                            <img class="invisible" src="~/Content/img/3.jpg" alt="Banner 1">
+                                                            <img class="invisible" src="~/Content/img/c3.jpg" alt="Banner 1">
                                                         </figure>
                                                     </div><!-- /.carousel-item -->
 
@@ -162,7 +164,7 @@
 
                                         
                                             <figure class="bg-cover bg-center" data-responsive-bg="true">
-                                                <img class="invisible" src="~/Content/img/0.jpg" alt="Banner 1">
+                                                <img class="invisible" src="~/Content/img/c0.jpg" alt="Banner 1">
                                             </figure>
                                         <!-- /.ld-shop-banner-image -->
 
@@ -186,7 +188,7 @@
 
                                         
                                             <figure class="bg-cover bg-center" data-responsive-bg="true">
-                                                <img class="invisible" src="~/Content/img/4.jpg" alt="Banner 1">
+                                                <img class="invisible" src="~/Content/img/c4.jpg" alt="Banner 1">
                                             </figure>
                                         <!-- /.ld-shop-banner-image -->
 
@@ -210,7 +212,7 @@
 
                                         
                                             <figure class="bg-cover bg-center" data-responsive-bg="true">
-                                                <img class="invisible" src="~/Content/img/5.jpg" alt="Banner 1">
+                                                <img class="invisible" src="~/Content/img/c5.jpg" alt="Banner 1">
                                             </figure>
                                         <!-- /.ld-shop-banner-image -->
 
@@ -234,7 +236,7 @@
 
                                         
                                             <figure class="bg-cover bg-center" data-responsive-bg="true">
-                                                <img class="invisible" src="~/Content/img/6.jpg" alt="Banner 1">
+                                                <img class="invisible" src="~/Content/img/c6.jpg" alt="Banner 1">
                                             </figure>
                                         <!-- /.ld-shop-banner-image -->
 
@@ -270,126 +272,40 @@
                     </div><!-- /.row -->
 
                     <div class="row">
+                        @foreach (var item in baseController.LastProducts())
+                        {
+                            <div class="lqd-column col-md-3 col-xs-6">
 
-                        <div class="lqd-column col-md-3 col-xs-6">
-
-                            <div class="ld-sp pos-rel" >
-                                <figure class="ld-sp-img">
-                                    <a href="shop-product-simple.html">
-                                        <img src="~/Content/img/x1.jpeg" alt="Product">
-                                    </a>
-                                    <figure class="ld-sp-img-hover my-0 ld-overlay pos-abs bg-cover bg-center" data-responsive-bg="true">
-                                        <a href="#">
-                                            <img class="invisible" src="~/Content/img/x1.jpeg" alt="Product">
+                                <div class="ld-sp pos-rel">
+                                    <figure class="ld-sp-img">
+                                        <a href="shop-product-simple.html">
+                                            <img src="~/Content/img/x1.jpeg" alt="Product">
+                                        </a>
+                                        <figure class="ld-sp-img-hover my-0 ld-overlay pos-abs bg-cover bg-center" data-responsive-bg="true">
+                                            <a href="#">
+                                                <img class="invisible" src="~/Content/img/x1.jpeg" alt="Product">
+                                            </a>
+                                        </figure>
+                                        <a href="#" class="ld-sp-btn add_to_cart_button">
+                                            <span>ÜRÜNE GİT</span>
                                         </a>
                                     </figure>
-                                    <a href="#" class="ld-sp-btn add_to_cart_button">
-                                        <span>Add to cart</span>
-                                    </a>
-                                </figure>
-                                <div class="ld-sp-info text-center">
-                                    <h3>
-                                        <a href="shop-product-simple.html">Scalloped Dress</a>
-                                    </h3>
-                                    <p class="ld-sp-price text-center">
-                                        <span class="ld-sp-price-amount">
-                                            <span class="ld-sp-currency">$</span>139.90
-                                        </span>
-                                    </p>
-                                </div><!-- /.ld-sp-info -->
-                            </div><!-- /.ld-sp -->
+                                    <div class="ld-sp-info text-center">
+                                        <h3>
+                                            <a href="shop-product-simple.html">@item.ProductName</a>
+                                        </h3>
+                                        <p class="ld-sp-price text-center">
+                                            <span class="ld-sp-price-amount">
+                                                @item.Price<span class="ld-sp-currency">₺</span>
+                                            </span>
+                                        </p>
+                                    </div><!-- /.ld-sp-info -->
+                                </div><!-- /.ld-sp -->
 
-                        </div><!-- /.lqd-column col-md-3 col-xs-6 -->
+                            </div><!-- /.lqd-column col-md-3 col-xs-6 -->
+                        }
 
-                        <div class="lqd-column col-md-3 col-xs-6">
 
-                            <div class="ld-sp pos-rel">
-                                <figure class="ld-sp-img">
-                                    <a href="shop-product-simple.html">
-                                        <img src="~/Content/img/x2.jpg" alt="Product">
-                                    </a>
-                                    <figure class="ld-sp-img-hover my-0 ld-overlay pos-abs bg-cover bg-center" data-responsive-bg="true">
-                                        <a href="#">
-                                            <img class="invisible" src="~/Content/img/x2.jpg" alt="Product">
-                                        </a>
-                                    </figure>
-                                    <a href="#" class="ld-sp-btn add_to_cart_button">
-                                        <span>Add to cart</span>
-                                    </a>
-                                </figure>
-                                <div class="ld-sp-info text-center">
-                                    <h3>
-                                        <a href="shop-product-simple.html">Scalloped Dress</a>
-                                    </h3>
-                                    <p class="ld-sp-price text-center">
-                                        <span class="ld-sp-price-amount">
-                                            <span class="ld-sp-currency">$</span>139.90
-                                        </span>
-                                    </p>
-                                </div><!-- /.ld-sp-info -->
-                            </div><!-- /.ld-sp -->
-
-                        </div><!-- /.lqd-column col-md-3 col-xs-6 -->
-
-                        <div class="lqd-column col-md-3 col-xs-6">
-
-                            <div class="ld-sp pos-rel">
-                                <figure class="ld-sp-img">
-                                    <a href="shop-product-simple.html">
-                                        <img src="~/Content/img/x3.jpg" alt="Product">
-                                    </a>
-                                    <figure class="ld-sp-img-hover my-0 ld-overlay pos-abs bg-cover bg-center" data-responsive-bg="true">
-                                        <a href="#">
-                                            <img class="invisible" src="~/Content/img/x3.jpg" alt="Product">
-                                        </a>
-                                    </figure>
-                                    <a href="#" class="ld-sp-btn add_to_cart_button">
-                                        <span>Add to cart</span>
-                                    </a>
-                                </figure>
-                                <div class="ld-sp-info text-center">
-                                    <h3>
-                                        <a href="shop-product-simple.html">Scalloped Dress</a>
-                                    </h3>
-                                    <p class="ld-sp-price text-center">
-                                        <span class="ld-sp-price-amount">
-                                            <span class="ld-sp-currency">$</span>139.90
-                                        </span>
-                                    </p>
-                                </div><!-- /.ld-sp-info -->
-                            </div><!-- /.ld-sp -->
-
-                        </div><!-- /.lqd-column col-md-3 col-xs-6 -->
-
-                        <div class="lqd-column col-md-3 col-xs-6">
-
-                            <div class="ld-sp pos-rel">
-                                <figure class="ld-sp-img">
-                                    <a href="shop-product-simple.html">
-                                        <img src="~/Content/img/x4.jpg" alt="Product">
-                                    </a>
-                                    <figure class="ld-sp-img-hover my-0 ld-overlay pos-abs bg-cover bg-center" data-responsive-bg="true">
-                                        <a href="#">
-                                            <img class="invisible" src="~/Content/img/x4.jpg" alt="Product">
-                                        </a>
-                                    </figure>
-                                    <a href="#" class="ld-sp-btn add_to_cart_button">
-                                        <span>Add to cart</span>
-                                    </a>
-                                </figure>
-                                <div class="ld-sp-info text-center">
-                                    <h3>
-                                        <a href="shop-product-simple.html">Scalloped Dress</a>
-                                    </h3>
-                                    <p class="ld-sp-price text-center">
-                                        <span class="ld-sp-price-amount">
-                                            <span class="ld-sp-currency">$</span>139.90
-                                        </span>
-                                    </p>
-                                </div><!-- /.ld-sp-info -->
-                            </div><!-- /.ld-sp -->
-
-                        </div><!-- /.lqd-column col-md-3 col-xs-6 -->
 
                     </div><!-- /.row -->
 
@@ -491,10 +407,10 @@
                         <div class="lqd-column col-md-8 col-md-offset-2">
 
                             <header class="fancy-title text-center mb-80">
-                                <h2>Editorial Collection</h2>
-                                <a href="#" class="btn btn-underlined text-uppercase btn-black">
+                                <h2>Örnek Ürünler</h2>
+                                <a href="@Url.Action("Urunler","Magaza",new { sayfa = 1 })" class="btn btn-underlined text-uppercase btn-black">
                                     <span>
-                                        <span class="btn-txt">See editorial</span>
+                                        <span class="btn-txt">Tümü için tıkla!</span>
                                         <span class="btn-icon">
                                             <i class="fa fa-angle-right"></i>
                                         </span>
@@ -507,106 +423,35 @@
                     </div><!-- /.row -->
 
                     <div class="row">
+                        @foreach (var item in baseController.FeaturedProducts())
+                        {
+                            <div class="lqd-column col-md-3 col-xs-6">
 
-                        <div class="lqd-column col-md-3 col-xs-6">
+                                <div class="ld-sp pos-rel">
+                                    <figure class="ld-sp-img">
+                                        <a href="shop-product-simple.html">
+                                            <img src="~/Content/img/6.jpg" alt="Product">
+                                        </a>
+                                        <a href="#" class="ld-sp-btn add_to_cart_button">
+                                            <span>ÜRÜNE GİT</span>
+                                        </a>
+                                    </figure>
+                                    <div class="ld-sp-info text-center">
+                                        <h3>
+                                            <a href="shop-product-simple.html">@item.ProductName</a>
+                                        </h3>
+                                        <p class="ld-sp-price">
+                                            <span class="ld-sp-price-amount">
+                                                @item.Price<span class="ld-sp-currency">₺</span>
+                                            </span>
+                                        </p>
+                                    </div><!-- /.ld-sp-info -->
+                                </div><!-- /.ld-sp -->
 
-                            <div class="ld-sp pos-rel">
-                                <figure class="ld-sp-img">
-                                    <a href="shop-product-simple.html">
-                                        <img src="~/assets/demo/shop/products/product-5.jpg" alt="Product">
-                                    </a>
-                                    <a href="#" class="ld-sp-btn add_to_cart_button">
-                                        <span>Add to cart</span>
-                                    </a>
-                                </figure>
-                                <div class="ld-sp-info text-center">
-                                    <h3>
-                                        <a href="shop-product-simple.html">Floral Top</a>
-                                    </h3>
-                                    <p class="ld-sp-price">
-                                        <span class="ld-sp-price-amount">
-                                            <span class="ld-sp-currency">$</span>55.00
-                                        </span>
-                                    </p>
-                                </div><!-- /.ld-sp-info -->
-                            </div><!-- /.ld-sp -->
+                            </div><!-- /.lqd-column col-md-3 col-xs-6 -->
+                        }
 
-                        </div><!-- /.lqd-column col-md-3 col-xs-6 -->
 
-                        <div class="lqd-column col-md-3 col-xs-6">
-
-                            <div class="ld-sp pos-rel">
-                                <figure class="ld-sp-img">
-                                    <a href="shop-product-simple.html">
-                                        <img src="~/assets/demo/shop/products/product-5.jpg" alt="Product">
-                                    </a>
-                                    <a href="#" class="ld-sp-btn add_to_cart_button">
-                                        <span>Add to cart</span>
-                                    </a>
-                                </figure>
-                                <div class="ld-sp-info text-center">
-                                    <h3>
-                                        <a href="shop-product-simple.html">Floral Top</a>
-                                    </h3>
-                                    <p class="ld-sp-price">
-                                        <span class="ld-sp-price-amount">
-                                            <span class="ld-sp-currency">$</span>55.00
-                                        </span>
-                                    </p>
-                                </div><!-- /.ld-sp-info -->
-                            </div><!-- /.ld-sp -->
-
-                        </div><!-- /.lqd-column col-md-3 col-xs-6 -->
-
-                        <div class="lqd-column col-md-3 col-xs-6">
-
-                            <div class="ld-sp pos-rel">
-                                <figure class="ld-sp-img">
-                                    <a href="shop-product-simple.html">
-                                        <img src="~/assets/demo/shop/products/product-5.jpg" alt="Product">
-                                    </a>
-                                    <a href="#" class="ld-sp-btn add_to_cart_button">
-                                        <span>Add to cart</span>
-                                    </a>
-                                </figure>
-                                <div class="ld-sp-info text-center">
-                                    <h3>
-                                        <a href="shop-product-simple.html">Floral Top</a>
-                                    </h3>
-                                    <p class="ld-sp-price">
-                                        <span class="ld-sp-price-amount">
-                                            <span class="ld-sp-currency">$</span>55.00
-                                        </span>
-                                    </p>
-                                </div><!-- /.ld-sp-info -->
-                            </div><!-- /.ld-sp -->
-
-                        </div><!-- /.lqd-column col-md-3 col-xs-6 -->
-
-                        <div class="lqd-column col-md-3 col-xs-6">
-
-                            <div class="ld-sp pos-rel">
-                                <figure class="ld-sp-img">
-                                    <a href="shop-product-simple.html">
-                                        <img src="~/assets/demo/shop/products/product-5.jpg" alt="Product">
-                                    </a>
-                                    <a href="#" class="ld-sp-btn add_to_cart_button">
-                                        <span>Add to cart</span>
-                                    </a>
-                                </figure>
-                                <div class="ld-sp-info text-center">
-                                    <h3>
-                                        <a href="shop-product-simple.html">Floral Top</a>
-                                    </h3>
-                                    <p class="ld-sp-price">
-                                        <span class="ld-sp-price-amount">
-                                            <span class="ld-sp-currency">$</span>55.00
-                                        </span>
-                                    </p>
-                                </div><!-- /.ld-sp-info -->
-                            </div><!-- /.ld-sp -->
-
-                        </div><!-- /.lqd-column col-md-3 col-xs-6 -->
 
                     </div><!-- /.row -->
 
@@ -843,7 +688,7 @@
                 </div><!-- /.container -->
             </section>
 
-        </main><!-- /#content.content -->
+   
 
         
 

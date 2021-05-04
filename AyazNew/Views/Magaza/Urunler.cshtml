@@ -1,0 +1,108 @@
+﻿@model PagedList.IPagedList<AyazNew.Entity.Products>
+@using PagedList.Mvc
+@using AyazNew.Service
+@{
+    ViewBag.Title = "Urunler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var baseController = ViewContext.Controller as AyazNew.Controllers.BaseController;
+    ViewBag.AllDesc = "Ayaz promosyonda indirim günleri! Hediyelik ürünler, nişan davetiye baskılı ürünler.Kişiye özel hemen sipariş ver.";
+}
+<main id="content" class="content">
+    <div class="container">
+        <hr />
+        <div class="row">
+            <div class="col-md-3 sidebar-container">
+
+                <aside class="main-sidebar">
+                    <div class="widget widget_search">
+                        <form role="search" method="get" class="search-form" action="/urunara">
+                            <label>
+                                <span class="screen-reader-text">Search for:</span>
+                                <input type="search" class="search-field" placeholder="Ürün Ara" value="" name="q">
+                            </label>
+                            <input type="submit" class="search-submit" value="Search">
+                        </form>
+                    </div><!-- /.widget_search -->
+
+                    <div class="widget widget_categories">
+                        <h3 class="widget-title">Kategoriler</h3>
+                        <ul>
+                            @foreach (var item in baseController.GetCategories())
+                            {
+
+                                <li>
+                                    <b>
+                                        <a href="@Url.Action("Kategori","Magaza",new { kategori = item.Id,sayfa=1,catName=SeoURL.AdresDuzenle(item.CategoryName) })">@item.CategoryName</a> (@baseController.GetProducts().Where(x => x.CategoryID == item.Id && x.Status == AyazNew.Entity.DataStatus.Active).Count())
+                                    </b>
+                                        </li>
+
+                               
+                            }
+                        </ul>
+                    </div><!-- /.widget_categories -->
+
+
+                </aside>
+
+            </div>
+            <div class="col-md-9">
+                <h1 class="text-center">Tüm Ürünler</h1>
+                <div class="row">
+
+                    @foreach (var item in Model.Where(x => x.Status == AyazNew.Entity.DataStatus.Active))
+                    {
+                    
+                        <div class=" col-md-4  col-sm-4 col-xs-4 mt-10 mb-10" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); height:400px;">
+                            <div class="ld-sp">
+                                <figure class="ld-sp-img">
+                                    <a href="@Url.Action("Detay","Magaza",new {id=item.Id,urunadi=SeoURL.AdresDuzenle(item.ProductName) })">
+                                        <img src="~/Content/img/@item.Image" alt="Product">
+                                    </a>
+                                    <figure class="ld-sp-img-hover my-0 ld-overlay pos-abs bg-cover bg-center" data-responsive-bg="true">
+                                        <a href="@Url.Action("Detay","Magaza",new {id=item.Id,urunadi=SeoURL.AdresDuzenle(item.ProductName) })">
+                                            <img class="invisible" src="~/Content/img/@item.Image" alt="Product">
+                                        </a>
+                                    </figure>
+                                    <a href="@Url.Action("Detay","Magaza",new {id=item.Id,urunadi=SeoURL.AdresDuzenle(item.ProductName) })" class="ld-sp-btn add_to_cart_button">
+                                        <span>ÜRÜNE GİT</span>
+                                    </a>
+                                </figure>
+                                <div class="text-center">
+                                    <h3>
+                                        <b><a href="@Url.Action("Detay","Magaza",new {id=item.Id,urunadi=SeoURL.AdresDuzenle(item.ProductName) })">@item.ProductName</a></b>
+
+                                    </h3>
+                                    <p class="text-center" style="font-size:14px;">
+                                        <span class="ld-sp-price-amount">
+                                            <del>
+                                                @item.OffPrice<span class="ld-sp-currency">₺</span>
+                                            </del>
+                                        </span>
+                                        <br />
+                                    <p class="ld-sp-price text-center">
+                                        <span class="ld-sp-price-amount">
+                                            <b>@item.Price<span class="ld-sp-currency">₺</span></b>
+
+                                        </span>
+                                    </p>
+
+
+                                </div><!-- /.ld-sp-info -->
+                            </div><!-- /.ld-sp -->
+                        </div>
+                    
+                    }
+
+                </div>
+                <!-- /.lqd-column col-md-3 col-xs-6 -->
+                <div class="btn btn-white-fade-border">
+                    @Html.PagedListPager(Model, sayfa => Url.Action("Urunler", new { kategori = Request.QueryString["kategori"], sayfa }))
+                </div>
+
+
+            </div>
+            <!-- /.col-md-3 col-md-offset-1 sidebar-container -->
+        </div><!-- /.row -->
+
+    </div><!-- /.container -->
+</main><!-- /#content.content -->

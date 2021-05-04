@@ -1,0 +1,28 @@
+﻿@model AyazNew.Entity.Member
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutFirst.cshtml";
+}
+<meta name="robots" content="noindex" />
+<div class="container mt-250">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4 bg-gray">
+            @using (Html.BeginForm("Login", "Admin", FormMethod.Post))
+            {
+            <form>
+                <div class="form-group">
+                    <label>Kullanıcı Adı</label>
+                    @Html.TextBoxFor(m => m.UserName, new { @placeholder = "Kullanıcı Adı", @class = "form-control", required = "true" })
+                </div>
+                <div class="form-group">
+                    <label>Şifre</label>
+                    @Html.PasswordFor(m => m.Password, new { @placeholder = "Şifre", @class = "form-control", required = "true" })
+                </div>
+                <button class="btn btn-primary" type="submit">Giriş</button>
+            </form>
+            }
+
+        </div>
+    </div>
+</div>
+

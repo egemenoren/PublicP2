@@ -2678,5 +2678,10 @@
     margin-left: 2.33333333%;
   }
 }
-
+@media screen and (min-width: 576px)
+{
+    .sidebar-container{
+        display:none;
+    }
+}
 /*# sourceMappingURL=theme-shop.css.map */

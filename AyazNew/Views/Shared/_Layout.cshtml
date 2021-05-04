@@ -1,18 +1,24 @@
-﻿<html lang="en">
+﻿@using AyazNew.Service
+
+<html lang="tr">
 <head>
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="theme-color" content="#3ed2a7">
-
+    <meta name="revisit-after" content="2 Days" />
     <link rel="shortcut icon" href="./favicon.png" />
-
-    <title>Ave HTML Template</title>
-
+    <meta name="revisit-after" content="2 Days" />
+    <meta name="author" content="Ayaz Promosyon" />
+    <meta name="robots" content="follow" />
+    <meta name="robots" content="all" />
+    <meta charset="utf-8" />
+    <title>Ayaz Promosyon - @ViewBag.Title</title>
+    <meta name="description" content="@ViewBag.AllDesc" />
+    <meta name="keywords" content="oto paspas,promosyon,kartvizit,yeni,oto kokusu,ürünler,ayaz,öne çıkarılan">
     <link rel="stylesheet" href="https://use.typekit.net/{YOUR_API_KEY}.css">
-    <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css?family=Barlow&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="~/assets/vendors/liquid-icon/liquid-icon.min.css" />
     <link rel="stylesheet" href="~/assets/vendors/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/assets/css/theme-vendors.min.css" />
@@ -25,7 +31,10 @@
 
 </head>
 <body data-mobile-nav-trigger-alignment="right" data-mobile-nav-align="left" data-mobile-nav-style="minimal" data-mobile-nav-shceme="gray" data-mobile-header-scheme="gray" data-mobile-nav-breakpoint="1199">
-    <header class="main-header main-header-overlay" data-react-to-megamenu="true" data-sticky-header="true" data-sticky-options='{ "stickyTrigger": "first-section" }'>
+   @{
+       var baseController = ViewContext.Controller as AyazNew.Controllers.BaseController;
+   }
+    <header class="main-header lqd-main-header-default bg-gradient-black-transparent-bt" data-react-to-megamenu="true" data-sticky-header="true" data-sticky-options='{ "stickyTrigger": "first-section" }'>
 
         <div class="secondarybar-wrap">
             <div class="secondarybar-container container-fluid">
@@ -35,9 +44,9 @@
                         <div class="col">
 
                             <div class="header-module">
-                                <a href="#" class="btn btn-naked text-uppercase">
+                                <a href="@Url.Action("Home","Index")" class="btn btn-naked text-uppercase">
                                     <span>
-                                        <span class="btn-txt">YENİ ÜRÜNLER SATIŞTA!</span>
+                                        <span class="btn-txt text-warning"><b>YENİ ÜRÜNLER SATIŞTA!</b></span>
                                         <span class="btn-icon">
                                             <i class="fa fa-angle-right"></i>
                                         </span>
@@ -52,9 +61,9 @@
                             </div><!-- /.header-module -->
 
                             <div class="header-module">
-                                <a href="#" class="btn btn-naked text-uppercase btn-icon-left font-size-14">
+                                <a href="https://api.whatsapp.com/send?phone=905321517566" class="btn btn-naked text-uppercase btn-icon-left font-size-14">
                                     <span>
-                                        <span class="btn-txt">+90 532 75 66</span>
+                                        <span class="btn-txt text-warning glyphicon-bold"><b>+90 532 151 75 66</b></span>
                                         <span class="btn-icon text-primary font-size-16 mr-3">
                                             <i class="fa fa-phone"></i>
                                         </span>
@@ -69,7 +78,7 @@
                             </div><!-- /.header-module -->
 
                             <div class="header-module">
-                                <p class="font-weight-medium font-size-15 text-transform-none ltr-sp-0">%50'YE VARAN İNDİRİMLER</p>
+                                <p class="font-weight-medium text-warning font-size-15 text-transform-none ltr-sp-0"><b>%50'YE VARAN İNDİRİMLER</b></p>
                             </div><!-- /.header-module -->
 
                         </div><!-- /.col -->
@@ -100,9 +109,9 @@
                             </div><!-- /.header-module -->
 
                             <div class="header-module">
-                                <a href="#" class="btn btn-naked text-uppercase">
+                                <a href="@Url.Action("Anasayfa","Magaza")" class="btn btn-naked text-uppercase">
                                     <span>
-                                        <span class="btn-txt">ANASAYFAYA DÖN</span>
+                                        <span class="btn-txt text-warning"><b>ANASAYFAYA DÖN</b></span>
                                     </span>
                                 </a>
                             </div><!-- /.header-module -->
@@ -160,13 +169,13 @@
 
                                 <ul id="primary-nav" class="main-nav nav align-items-lg-stretch justify-content-lg-center" data-submenu-options='{ "toggleType":"fade", "handler":"mouse-in-out" }'>
 
-                                    <li class="current-menu-item">
-                                        <a href="#">
+                                    <li>
+                                        <a href="@Url.Action("Index","Home")">
                                             <span class="link-icon"></span>
                                             <span class="link-txt">
                                                 <span class="link-ext"></span>
                                                 <span class="txt">
-                                                    Home
+                                                    Anasayfa
                                                     <span class="submenu-expander">
                                                         <i class="fa fa-angle-down"></i>
                                                     </span>
@@ -180,7 +189,7 @@
                                             <span class="link-txt">
                                                 <span class="link-ext"></span>
                                                 <span class="txt">
-                                                    Shop Women
+                                                    Hakkımızda
                                                     <span class="submenu-expander">
                                                         <i class="fa fa-angle-down"></i>
                                                     </span>
@@ -188,13 +197,13 @@
                                             </span>
                                         </a>
                                     </li>
-                                    <li class="menu-item-has-children megamenu">
-                                        <a href="#">
+                                    <li class="menu-item-has-children megamenu columns-3" data-bg-color="rgb(255, 255, 255)" data-megamenu-bg-scheme="light">
+                                        <a style="cursor:pointer">
                                             <span class="link-icon"></span>
                                             <span class="link-txt">
                                                 <span class="link-ext"></span>
                                                 <span class="txt">
-                                                    Shop Men
+                                                    Kategoriler
                                                     <span class="submenu-expander">
                                                         <i class="fa fa-angle-down"></i>
                                                     </span>
@@ -208,50 +217,84 @@
                                                         <div class="container ld-container">
                                                             <div class="row ld-row">
 
-                                                                <div class="megamenu-column col-md-3 py-md-3 px-md-4">
-                                                                    <div class="megamenu-column-inner pl-md-4 py-md-4">
-                                                                        <h3 class="megamenu-heading font-size-12 text-uppercase ltr-sp-175 mb-3">Categories</h3>
-                                                                        <ul class="lqd-custom-menu reset-ul font-size-15 lh-2 ltr-sp-025 font-weight-medium">
-                                                                            <li>
-                                                                                <a href="#"><i class="fa fa-angle-right mr-2"></i>Shoes + Backpacks</a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#"><i class="fa fa-angle-right mr-2"></i>Rompers</a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#"><i class="fa fa-angle-right mr-2"></i>Dresses + Rompers</a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#"><i class="fa fa-angle-right mr-2"></i>Rompers</a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#"><i class="fa fa-angle-right mr-2"></i>Scarves + Ponchos</a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#"><i class="fa fa-angle-right mr-2"></i>Accessories</a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="#"><i class="fa fa-angle-right mr-2"></i>Dresses + Rompers</a>
-                                                                            </li>
-                                                                        </ul>
-                                                                    </div><!-- /.megamenu-column-inner -->
-                                                                </div><!-- /.megamenu-column -->
+                                                                @{
+                                                                    int catCount = baseController.GetCategories().Count;
+                                                                    int column = 0;
+                                                                    int counter = 0;
+                                                                }
 
-                                                                <div class="megamenu-column col-md-3 bg-cover bg-center" data-responsive-bg="true">
-                                                                    <img class="invisible" src="~/assets/demo/misc/megamenu-img-1.jpg" alt="Megamenu Image">
-                                                                </div><!-- /.megamenu-column -->
+
+                                                                @if (column == 0)
+                                                                {
+                                                                    <div class="megamenu-column col-md-3 py-md-3 px-md-4">
+                                                                        <div class="megamenu-column-inner pl-md-4 py-md-4">
+                                                                            <h3 class="megamenu-heading font-size-12 text-uppercase ltr-sp-175 mb-3">Kategoriler</h3>
+                                                                            <ul class="lqd-custom-menu reset-ul font-size-15 lh-2 ltr-sp-025 font-weight-medium">
+                                                                                @foreach (var item in baseController.GetCategories())
+                                                                                {
+                                                                                    if (counter < 8)
+                                                                                    {
+                                                                                        <li>
+                                                                                            <a href="@Url.Action("Kategori","Magaza", new {@kategori = item.Id,sayfa=1,catName=SeoURL.AdresDuzenle(item.CategoryName) })">
+                                                                                                <i class="fa fa-angle-right mr-2"></i>@item.CategoryName
+                                                                                            </a>
+                                                                                        </li>
+                                                                                    }
+                                                                                    else
+                                                                                    {
+                                                                                        counter = 0;
+                                                                                        column++;
+                                                                                        break;
+                                                                                    }
+                                                                                    counter++;
+                                                                                }
+                                                                            </ul>
+                                                                        </div><!-- /.megamenu-column-inner -->
+                                                                    </div><!-- /.megamenu-column -->
+
+                                                                }
+                                                                @if (column == 1)
+                                                                {
+                                                                    <div class="megamenu-column col-md-3 py-md-3 px-md-4">
+                                                                        <div class="megamenu-column-inner pl-md-4 py-md-4">
+                                                                            <h3 class="megamenu-heading font-size-12 text-uppercase ltr-sp-175 mb-3"></h3>
+                                                                            <ul class="lqd-custom-menu reset-ul font-size-15 lh-2 ltr-sp-025 font-weight-medium">
+                                                                                @foreach (var item in baseController.GetCategories())
+                                                                                {
+                                                                                    if (counter >= 8 && counter < 16)
+                                                                                    {
+                                                                                        <li>
+                                                                                            <a href="@Url.Action("Kategori","Magaza", new {@kategori = item.Id,sayfa=1,catName=SeoURL.AdresDuzenle(item.CategoryName) })"><i class="fa fa-angle-right mr-2"></i>@item.CategoryName</a>
+                                                                                        </li>
+                                                                                    }
+                                                                                    else if (counter >= 16)
+                                                                                    {
+                                                                                        counter = 0;
+                                                                                        column++;
+                                                                                        break;
+                                                                                    }
+                                                                                    counter++;
+                                                                                }
+                                                                            </ul>
+                                                                        </div><!-- /.megamenu-column-inner -->
+                                                                    </div><!-- /.megamenu-column -->
+
+                                                                }
+
+
+
 
                                                                 <div class="megamenu-column col-md-3" style="background-color: #f0f0f0;">
                                                                     <div class="megamenu-column-inner py-md-4 px-md-4">
-                                                                        <h3 class="font-size-30 lh-115">Sharonâ€™s summer collection.</h3>
+                                                                        <h3 class="font-size-30 lh-115">Birbirinden özel ürünler Ayaz Promosyonda!</h3>
                                                                         <p class="mb-md-6">
-                                                                            <span class="font-size-15 lh-175 text-fade-dark-07">â€¢ Polyester blend</span><br>
-                                                                            <span class="font-size-15 lh-175 text-fade-dark-07">â€¢ Machine wash cold, dry flat</span><br>
-                                                                            <span class="font-size-15 lh-175 text-fade-dark-07">â€¢ Quality Material</span>
+                                                                            <span class="font-size-15 lh-175 text-fade-dark-07">Çeşitli Matbaa Ürünleri</span><br>
+                                                                            <span class="font-size-15 lh-175 text-fade-dark-07">Hediyelik Eşyalar</span><br>
+                                                                            <span class="font-size-15 lh-175 text-fade-dark-07">Ve Daha Niceleri</span>
                                                                         </p>
-                                                                        <a href="#" class="btn btn-solid text-uppercase btn-md border-none lh-2 font-weight-bold ltr-sp-2">
+                                                                        <a href="@Url.Action("Urunler","Magaza",new {sayfa=1 })" class="btn btn-solid text-uppercase btn-md border-none lh-2 font-weight-bold ltr-sp-2">
                                                                             <span>
-                                                                                <span class="btn-txt">Shop Dresses</span>
+                                                                                <span class="btn-txt">Tüm Ürünler</span>
                                                                                 <span class="btn-icon">
                                                                                     <i class="fa fa-angle-right"></i>
                                                                                 </span>
@@ -267,13 +310,13 @@
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="menu-item-has-children">
-                                        <a href="#">
+                                    <li class="megamenu-item-active">
+                                        <a href="@Url.Action("Urunler","Magaza",new {sayfa=1 })">
                                             <span class="link-icon"></span>
                                             <span class="link-txt">
                                                 <span class="link-ext"></span>
                                                 <span class="txt">
-                                                    Product Pages
+                                                    Tüm Ürünler
                                                     <span class="submenu-expander">
                                                         <i class="fa fa-angle-down"></i>
                                                     </span>
@@ -302,52 +345,8 @@
                                             <span class="link-icon"></span>
                                             <span class="link-txt">
                                                 <span class="link-ext"></span>
-                                                <span class="txt">
-                                                    Shop Pages
-                                                    <span class="submenu-expander">
-                                                        <i class="fa fa-angle-down"></i>
-                                                    </span>
-                                                </span>
-                                            </span>
-                                        </a>
-                                        <ul class="nav-item-children">
-                                            <li>
-                                                <a href="shop-cart.html">
-                                                    <span class="link-icon"></span>
-                                                    <span class="link-txt">
-                                                        <span class="link-ext"></span>
-                                                        <span class="txt">
-                                                            Cart
-                                                            <span class="submenu-expander">
-                                                                <i class="fa fa-angle-down"></i>
-                                                            </span>
-                                                        </span>
-                                                    </span>
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="shop-checkout.html">
-                                                    <span class="link-icon"></span>
-                                                    <span class="link-txt">
-                                                        <span class="link-ext"></span>
-                                                        <span class="txt">
-                                                            Checkout
-                                                            <span class="submenu-expander">
-                                                                <i class="fa fa-angle-down"></i>
-                                                            </span>
-                                                        </span>
-                                                    </span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <span class="link-icon"></span>
-                                            <span class="link-txt">
-                                                <span class="link-ext"></span>
-                                                <span class="txt">
-                                                    Blog
+                                                <span class="txt text-success">
+                                                    Whatsapp Hattı
                                                     <span class="submenu-expander">
                                                         <i class="fa fa-angle-down"></i>
                                                     </span>
@@ -367,154 +366,59 @@
                             <div class="header-module">
                                 <div class="ld-dropdown-menu ld-dropdown-yenu-underlined">
                                     <span class="ld-module-trigger collapsed font-size-13 text-uppercase font-weight-bold ltr-sp-175" role="button" data-ld-toggle="true" data-toggle="collapse" data-target="#shop-lang-dropdown" aria-controls="shop-lang-dropdown" aria-expanded="false">
-                                        <span class="ld-module-trigger-txt">US <i class="fa fa-angle-down"></i></span>
+                                        <span class="ld-module-trigger-txt">TR<i class="fa fa-angle-down"></i></span>
                                     </span>
-                                    <div class="ld-module-dropdown left collapse" id="shop-lang-dropdown" aria-expanded="false" role="list">
-                                        <div class="ld-dropdown-menu-content">
-                                            <ul>
-                                                <li><a href="#" target="_blank">FR</a></li>
-                                                <li><a href="#" target="_blank">IT</a></li>
-                                            </ul>
-                                        </div><!-- /.ld-dropdown-menu-content -->
-                                    </div><!-- /.ld-module-dropdown -->
                                 </div><!-- /.ld-dropdown-menu -->
                             </div><!-- /.header-module -->
 
+
                             <div class="header-module">
-                                <div class="ld-module-cart">
-
-                                    <span class="ld-module-trigger collapsed" role="button" data-ld-toggle="true" data-toggle="collapse" data-target="#shop-cart" aria-controls="shop-cart" aria-expanded="false">
+                                <div class="ld-module-search">
+                                    <span class="ld-module-trigger" role="button" data-ld-toggle="true" data-toggle="collapse" data-target="#search-1" aria-controls="search-1" aria-expanded="false">
                                         <span class="ld-module-trigger-icon">
-                                            <i class="icon-ld-cart"></i>
-                                        </span><!-- /.ld-module-trigger-icon -->
-                                        <span class="ld-module-trigger-count">2</span>
-                                    </span><!-- /.ld-module-trigger -->
-
-                                    <div class="ld-module-dropdown collapse" id="shop-cart" aria-expanded="false" role="list">
-
-                                        <div class="ld-cart-contents">
-
-                                            <div class="ld-cart-head hidden">
-                                                <span class="font-weight-bold text-uppercase ltr-sp-175">Your cart <span class="color-primary">2</span></span>
-                                            </div><!-- /.ld-cart-head -->
-
-                                            <div class="ld-cart-products">
-
-                                                <div class="ld-cart-product">
-                                                    <a href="#" class="ld-cart-product-remove remove"><i class="icon-ion-ios-close"></i></a>
-                                                    <div class="ld-cart-product-info">
-                                                        <a href="#">
-                                                            <figure>
-                                                                <img src="assets/demo/shop/cart/cart-product-1.jpg" alt="Cart Product">
-                                                            </figure>
-                                                            <span class="ld-cart-product-details">
-                                                                <span class="ld-cart-product-name">Scalloped Dress</span>
-                                                                <span class="ld-cart-product-extra">
-                                                                    <span>Size: XL</span>
-                                                                </span>
-                                                                <span class="ld-cart-product-price">
-                                                                    <span>$139.90</span>
-                                                                    <span class="ld-cart-product-quantity">x1</span>
-                                                                </span><!-- /.ld-cart-product-price -->
-                                                            </span><!-- /.ld-cart-product-details -->
-                                                        </a>
-                                                    </div><!-- /.ld-cart-product-info -->
-                                                </div><!-- /.ld-cart-product -->
-                                                div class="ld-cart-product">
-                                                <a href="#" class="ld-cart-product-remove remove"><i class="icon-ion-ios-close"></i></a>
-                                                <div class="ld-cart-product-info">
-                                                    <a href="#">
-                                                        <figure>
-                                                            <img src="assets/demo/shop/cart/cart-product-1.jpg" alt="Cart Product">
-                                                        </figure>
-                                                        <span class="ld-cart-product-details">
-                                                            <span class="ld-cart-product-name">Scalloped Dress</span>
-                                                            <span class="ld-cart-product-extra">
-                                                                <span>Size: XL</span>
-                                                            </span>
-                                                            <span class="ld-cart-product-price">
-                                                                <span>$139.90</span>
-                                                                <span class="ld-cart-product-quantity">x1</span>
-                                                            </span><!-- /.ld-cart-product-price -->
-                                                        </span><!-- /.ld-cart-product-details -->
-                                                    </a>
-                                                </div><!-- /.ld-cart-product-info -->
-                                            </div><!-- /.ld-cart-product -->
-
-                                        </div><!-- /.ld-cart-products -->
-
-                                        <div class="ld-cart-foot">
-                                            <div class="ld-cart-total">
-                                                <span class="ld-cart-total-label font-weight-bold text-uppercase ltr-sp-175">Subtotal</span>
-                                                <span class="ld-cart-total-price color-primary">$139.90</span>
-                                            </div><!-- /.ld-cart-total -->
-                                            <div class="ld-cart-button">
-                                                <a href="#" class="btn btn-lg btn-solid text-uppercase ltr-sp-175">
-                                                    <span>
-                                                        <span class="btn-txt">Checkout</span>
-                                                        <span class="btn-icon"><i class="fa fa-angle-right"></i></span>
-                                                    </span>
-                                                </a>
-                                                <a href="#" class="btn btn-lg btn-naked text-uppercase ltr-sp-175">
-                                                    <span>
-                                                        <span class="btn-txt">View Cart</span>
-                                                        <span class="btn-icon"><i class="fa fa-angle-right"></i></span>
-                                                    </span>
-                                                </a>
-                                            </div><!-- /.ld-cart-button -->
-                                        </div><!-- /.ld-cart-foot -->
-
-                                        <div class="ld-cart-message">
-                                            <p>Free Delivery on orders over </p>
-                                        </div><!-- /.ld-cart-message -->
-
-                                    </div><!-- /.ld-cart-contents -->
-
-                                </div><!-- /.ld-module-dropdown -->
-
-                            </div><!-- /.module-cart -->
-                        </div><!-- /.header-module -->
-
-                        <div class="header-module">
-                            <div class="ld-module-search">
-                                <span class="ld-module-trigger" role="button" data-ld-toggle="true" data-toggle="collapse" data-target="#search-1" aria-controls="search-1" aria-expanded="false">
-                                    <span class="ld-module-trigger-icon">
-                                        <i class="icon-ld-search"></i>
+                                            <i class="icon-ld-search"></i>
+                                        </span>
                                     </span>
-                                </span>
-                                <div role="search" class="ld-module-dropdown collapse" id="search-1" aria-expanded="false">
-                                    <div class="ld-search-form-container">
-                                        <form role="search" method="get" action="#" class="ld-search-form">
-                                            <input type="search" placeholder="Start searching" value="" name="s">
-                                            <span role="search" class="input-icon" data-ld-toggle="true" data-toggle="collapse" data-target="#search-1"
-                                                  aria-controls="search-1" aria-expanded="false"><i class="icon-ld-search"></i></span>
-                                        </form>
-                                    </div>
-                                </div><!-- /.ld-module-dropdown -->
-                            </div><!-- /.ld-module-search -->
-                        </div><!-- /.header-module -->
+                                    <div role="search" class="ld-module-dropdown collapse" id="search-1" aria-expanded="false">
+                                        <div class="ld-search-form-container">
 
-                    </div><!-- /.col -->
+                                            
+                                                <form role="search" method="get" action="/urunara" class="ld-search-form">
+                                                    <input type="search" placeholder="Aramaya başla" value="" name="q">
+                                                        <span role="search" class="input-icon" data-ld-toggle="true" data-toggle="collapse" data-target="#search-1"
+                                                              aria-controls="search-1" aria-expanded="false"><i class="icon-ld-search"></i></span>
 
-                </div><!-- /.mainbar-row -->
-            </div><!-- /.mainbar -->
-        </div><!-- /.mainbar-container -->
+                                                   
+                                                </form>
+                                            
+
+
+                                        </div>
+                                    </div><!-- /.ld-module-dropdown -->
+                                </div><!-- /.ld-module-search -->
+                            </div><!-- /.header-module -->
+
+                        </div><!-- /.col -->
+
+                    </div><!-- /.mainbar-row -->
+                </div><!-- /.mainbar -->
+            </div><!-- /.mainbar-container -->
         </div><!-- /.mainbar-wrap -->
     </header>
     @RenderBody()
-    <footer class="main-footer pt-60 pb-60">
+    <footer class="main-footer pt-60 pb-60 bg-gradient-black-transparent-tb">
 
         <section>
 
             <div class="container">
                 <div class="row">
 
-                    <div class="lqd-column col-md-4">
+                    <div class="lqd-column col-md-5 col-sm-12">
 
                         <figure class="mb-4">
                             <img src="~/Content/img/Logo.png" alt="Ayaz Promosyon Logo">
                         </figure>
-                        <p>Müştermi memnuniyeti odaklı olarak 1999 Yılından beri promosyon ürünleri imal ediyoruz. Her koşulda kusursuz tasarım ve hızlı teslimat garantisi veriyoruz.</p>
+                        <p>Müşteri memnuniyeti odaklı olarak 1999 Yılından beri promosyon ürünleri imal ediyoruz. Her koşulda kusursuz tasarım ve hızlı teslimat garantisi veriyoruz.</p>
                         <ul class="social-icon scheme-dark social-icon-lg mb-25">
                             <li><a href="https://instagram.com/ayaz.promosyon" target="_blank"><i class="fa fa-instagram"></i></a></li>
                         </ul>
@@ -522,155 +426,44 @@
 
                     </div><!-- /.col-md-3 -->
 
-                    <div class="lqd-column col-md-3 col-md-offset-1 text-center">
+                    <div class="lqd-column col-md-3 col-sm-4 text-center">
 
-                        <h3 class="widget-title">Products</h3>
-                        <div class="ld-bsp-carousel">
-
-                            <div class="carousel-container carousel-dots-style2">
-                                <div class="carousel-items row mx-0" data-lqd-flickity='{ "imagesLoaded": true, "adaptiveHeight": true, "prevNextButtons": true, "navArrow": { "prev": "<i class=\"fa fa-angle-left\"></i>", "next": "<i class=\"fa fa-angle-right\"></i>" } }'>
-
-                                    <div class="carousel-item col-xs-12 text-center">
-                                        <div class="ld-bsp">
-                                            <figure class="ld-bsp-img">
-                                                <a href="#">
-                                                    <img src="assets/demo/shop/products/product-9.jpg" alt="Product">
-                                                </a>
-                                            </figure>
-                                            <div class="ld-bsp-info">
-                                                <h3>
-                                                    <a href="#">Product name</a>
-                                                </h3>
-                                                <p class="ld-bsp-price">
-                                                    <span class="ld-bsp-price-amount">
-                                                        <span class="ld-bsp-currency">$</span>139.90
-                                                    </span>
-                                                </p>
-                                            </div><!-- /.ld-bsp-info -->
-                                        </div><!-- /.ld-bsp -->
-                                        <div class="ld-bsp">
-                                            <figure class="ld-bsp-img">
-                                                <a href="#">
-                                                    <img src="assets/demo/shop/products/product-9.jpg" alt="Product">
-                                                </a>
-                                            </figure>
-                                            <div class="ld-bsp-info">
-                                                <h3>
-                                                    <a href="#">Product name</a>
-                                                </h3>
-                                                <p class="ld-bsp-price">
-                                                    <span class="ld-bsp-price-amount">
-                                                        <span class="ld-bsp-currency">$</span>139.90
-                                                    </span>
-                                                </p>
-                                            </div><!-- /.ld-bsp-info -->
-                                        </div><!-- /.ld-bsp -->
-                                    </div><!-- /.carousel-item col-xs-12 -->
-
-                                    <div class="carousel-item col-xs-12 px-0">
-                                        <div class="ld-bsp">
-                                            <figure class="ld-bsp-img">
-                                                <a href="#">
-                                                    <img src="assets/demo/shop/products/product-9.jpg" alt="Product">
-                                                </a>
-                                            </figure>
-                                            <div class="ld-bsp-info">
-                                                <h3>
-                                                    <a href="#">Product name</a>
-                                                </h3>
-                                                <p class="ld-bsp-price">
-                                                    <span class="ld-bsp-price-amount">
-                                                        <span class="ld-bsp-currency">$</span>139.90
-                                                    </span>
-                                                </p>
-                                            </div><!-- /.ld-bsp-info -->
-                                        </div><!-- /.ld-bsp -->
-                                        <div class="ld-bsp">
-                                            <figure class="ld-bsp-img">
-                                                <a href="#">
-                                                    <img src="assets/demo/shop/products/product-9.jpg" alt="Product">
-                                                </a>
-                                            </figure>
-                                            <div class="ld-bsp-info">
-                                                <h3>
-                                                    <a href="#">Product name</a>
-                                                </h3>
-                                                <p class="ld-bsp-price">
-                                                    <span class="ld-bsp-price-amount">
-                                                        <span class="ld-bsp-currency">$</span>139.90
-                                                    </span>
-                                                </p>
-                                            </div><!-- /.ld-bsp-info -->
-                                        </div><!-- /.ld-bsp -->
-                                    </div><!-- /.carousel-item col-xs-12 -->
-
-                                    <div class="carousel-item col-xs-12 px-0">
-                                        <div class="ld-bsp">
-                                            <figure class="ld-bsp-img">
-                                                <a href="#">
-                                                    <img src="assets/demo/shop/products/product-9.jpg" alt="Product">
-                                                </a>
-                                            </figure>
-                                            <div class="ld-bsp-info">
-                                                <h3>
-                                                    <a href="#">Product name</a>
-                                                </h3>
-                                                <p class="ld-bsp-price">
-                                                    <span class="ld-bsp-price-amount">
-                                                        <span class="ld-bsp-currency">$</span>139.90
-                                                    </span>
-                                                </p>
-                                            </div><!-- /.ld-bsp-info -->
-                                        </div><!-- /.ld-bsp -->
-                                        <div class="ld-bsp">
-                                            <figure class="ld-bsp-img">
-                                                <a href="#">
-                                                    <img src="assets/demo/shop/products/product-9.jpg" alt="Product">
-                                                </a>
-                                            </figure>
-                                            <div class="ld-bsp-info">
-                                                <h3>
-                                                    <a href="#">Product name</a>
-                                                </h3>
-                                                <p class="ld-bsp-price">
-                                                    <span class="ld-bsp-price-amount">
-                                                        <span class="ld-bsp-currency">$</span>139.90
-                                                    </span>
-                                                </p>
-                                            </div><!-- /.ld-bsp-info -->
-                                        </div><!-- /.ld-bsp -->
-                                    </div><!-- /.carousel-item col-xs-12 -->
-
-                                </div><!-- /.carousel-items -->
-                            </div><!-- /.carousel-container -->
-
-                        </div><!-- /.ld-bsp-carousel -->
-
-                    </div><!-- /.col-md-3 -->
-
-                    <div class="lqd-column col-md-2 col-sm-6 text-center">
-
-                        <h3 class="widget-title">Store</h3>
+                        <h3 class="widget-title">İletişim</h3>
                         <ul class="lqd-custom-menu reset-ul font-size-15">
-                            <li class="mb-2"><a href="#">In-Store Pickup</a></li>
-                            <li class="mb-2"><a href="#">Afterpay</a></li>
-                            <li class="mb-2"><a href="#">Brands</a></li>
-                            <li class="mb-2"><a href="#">Gift Cards</a></li>
-                            <li class="mb-2"><a href="#">Careers</a></li>
-                            <li class="mb-2"><a href="#">About Us</a></li>
+                            <li class="mb-2"><a href="https://api.whatsapp.com/send?phone=905321517566">Whatsapp</a></li>
+                            <li class="mb-2"><a href="https://api.whatsapp.com/send?phone=905321517566">+90 532 151 75 66</a></li>
+                            <li class="mb-2"><a href="https://instagram.com/ayaz.promosyon">Instagram</a></li>
+                            <li class="mb-2"><a href="https://instagram.com/ayaz.promosyon">/ayaz.promosyon</a></li>
+                            <li class="mb-2"><a href="#">0212 578 32 47</a></li>
                         </ul>
 
                     </div><!-- /.lqd-column col-md-2 col-sm-6 -->
 
-                    <div class="lqd-column col-md-2 col-sm-6 text-center">
+                    <div class="lqd-column col-md-2 col-sm-4 text-center">
 
-                        <h3 class="widget-title">Customer service</h3>
+                        <h3 class="widget-title">En Çok Aranan</h3>
                         <ul class="lqd-custom-menu reset-ul font-size-15">
-                            <li class="mb-2"><a href="#">Order Status</a></li>
-                            <li class="mb-2"><a href="#">Product Guides</a></li>
-                            <li class="mb-2"><a href="#">Wishlists</a></li>
-                            <li class="mb-2"><a href="#">Privacy Policy</a></li>
-                            <li class="mb-2"><a href="#">Store Locator</a></li>
+                           
+
+                                <li class="mb-2"><a href="@Url.Action("Kategori","Magaza",new { kategori = 2, sayfa = 1, catName = SeoURL.AdresDuzenle("Oto Kokusu") })">Oto Kokusu</a></li>
+                                <li class="mb-2"><a href="@Url.Action("Kategori","Magaza",new { kategori = 8, sayfa = 1, catName = SeoURL.AdresDuzenle("Broşür") })">Broşür</a></li>
+                                <li class="mb-2"><a href="@Url.Action("Kategori","Magaza",new { kategori = 3,sayfa = 1, catName = SeoURL.AdresDuzenle("Kupa Bardak") })">Kupa Bardak</a></li>
+                                <li class="mb-2"><a href="@Url.Action("Kategori","Magaza",new { kategori = 6, sayfa = 1, catName = SeoURL.AdresDuzenle("Magnet") })">Magnet</a></li>
+                                <li class="mb-2"><a href="@Url.Action("Kategori","Magaza",new { kategori = 10, sayfa = 1, catName = SeoURL.AdresDuzenle("Anahtarlık") })">Anahtarlık</a></li>
+                            
+                        </ul>
+
+                    </div><!-- /.lqd-column col-md-2 col-sm-6 -->
+
+                    <div class="lqd-column col-md-2 col-sm-4 text-center">
+
+                        <h3 class="widget-title">Göz Atın</h3>
+                        <ul class="lqd-custom-menu reset-ul font-size-15">
+                            <li class="mb-2"><a href="@Url.Action("Kategori","Magaza",new { kategori = 7, sayfa = 1, catName = SeoURL.AdresDuzenle("Kartvizit") })">Kartvizit</a></li>
+                            <li class="mb-2"><a href="@Url.Action("Kategori","Magaza",new { kategori = 13, sayfa = 1, catName = SeoURL.AdresDuzenle("Masa Bayrakları") })">Masa Bayrakları</a></li>
+                            <li class="mb-2"><a href="@Url.Action("Kategori","Magaza",new { kategori = 4, sayfa = 1, catName = SeoURL.AdresDuzenle("Baskılı Çakmak") })">Baskılı Çakmak</a></li>
+                            <li class="mb-2"><a href="@Url.Action("Kategori","Magaza",new { kategori = 11, sayfa = 1, catName = SeoURL.AdresDuzenle("Oto Paspas") })">Oto Paspas</a></li>
+                            <li class="mb-2"><a href="@Url.Action("Kategori","Magaza",new { kategori = 9, sayfa = 1, catName = SeoURL.AdresDuzenle("Baskılı Kalem") })">Baskılı Kalem</a></li>
                         </ul>
 
                     </div><!-- /.lqd-column col-md-2 col-sm-6 -->

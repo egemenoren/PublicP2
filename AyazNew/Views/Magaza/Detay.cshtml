@@ -1,0 +1,195 @@
+﻿@model AyazNew.Entity.Products
+@{
+    var baseController = ViewContext.Controller as AyazNew.Controllers.BaseController;
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var categoryName = baseController.GetCategories().Where(x => x.Id == Model.CategoryID).First().CategoryName;
+    ViewBag.AllDesc = Model.Description + ". İndirimle sadece " + Model.Price + "TL! Bu fırsatı kaçırmayın!";
+}
+
+<body class="woocommerce single" data-mobile-nav-trigger-alignment="right" data-mobile-nav-align="left" data-mobile-nav-style="minimal" data-mobile-nav-shceme="gray" data-mobile-header-scheme="gray" data-mobile-nav-breakpoint="1199">
+
+    <div id="wrap">
+
+
+        <div class="titlebar scheme-light text-center bg-cover" style="background-image: url(./assets/demo/bg/bg-105.jpg)">
+
+            <div class="titlebar-inner pt-60 pb-40">
+                <div class="container titlebar-container">
+                    <div class="row titlebar-container">
+                        <div class="titlebar-col col-md-12">
+                            <h1 data-fittext="true" data-fittext-options='{ "maxFontSize": 60, "minFontSize": 32 }'>@Model.ProductName</h1>
+                        </div><!-- /.titlebar-col -->
+                    </div><!-- /.titlebar-row -->
+                </div><!-- /.titlebar-container -->
+            </div><!-- /.titlebar-inner -->
+
+        </div><!-- /.titlebar -->
+
+
+            <section>
+
+                <div class="container">
+                    <div class="row">
+
+                        <div class="lqd-column col-md-12">
+
+                            <div class="ld-shop-topbar">
+                                <nav class="mb-4 mb-md-0">
+                                    <ul class="breadcrumbs reset-ul inline-nav comma-sep-li">
+                                        <li>
+                                            <a href="@Url.Action("Index","Home")">
+                                                <b>Mağaza</b>
+                                                
+                                            </a>
+                                             >
+                                            <a href="@Url.Action("Urunler","Magaza",new { sayfa=1})">
+                                                <b>Ürünler</b>
+                                                
+                                            </a>
+                                             >
+                                            <a href="@Url.Action("Kategori","Magaza",new { catName=categoryName,sayfa=1,kategori=Model.CategoryID})">
+                                                <b>@categoryName</b>
+                                            </a>
+                                             >
+                                            <a>
+                                                <b>@Model.ProductName</b>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div><!-- /.ld-shop-topbar -->
+
+                            <div class="product">
+
+                                <div class="ld-product-images">
+                                    <div class="images">
+
+                                        <div class="carousel-container ld-product-images-main-carousel carousel-nav-lg carousel-nav-floated carousel-nav-solid carousel-nav-circle carousel-nav-middle carousel-dots-style2 carousel-dots-inside mb-3">
+
+                                            <div class="carousel-items row" id="lqd-shop-images" data-lqd-flickity='{ "prevNextButtons": false, "pageDots": true, "navOffsets": { "prev": 15, "next": 15 }, "wrapAround": true, "navArrow": { "prev": "<i class=\"fa fa-angle-left\"></i>", "next": "<i class=\"fa fa-angle-right\"></i>" } }'>
+
+                                                <div class="carousel-item col-xs-12 px-0">
+                                                    <figure>
+                                                        <img src="~/Content/img/@(Model.Id).jpg" alt="Product">
+                                                    </figure>
+                                                </div><!-- /.carousel-item -->
+                                            </div><!-- /.carousel-items row -->
+
+                                        </div><!-- /.carousel-container -->
+
+                                       <!-- /.carousel-container -->
+
+                                    </div><!-- /.woocommerce-product-gallery images -->
+                                </div><!-- /.ld-product-images -->
+
+                                <div class="summary entry-summary ld-product-summary">
+
+                                    <h1 class="product_title entry-title">@Model.ProductName</h1>
+
+                                    <p class="price">
+                                        <del>
+                                            <span class="amount">
+                                                <span>@Model.OffPrice</span>₺
+                                            </span>
+                                        </del>
+                                        <ins>
+                                            <span class="amount">
+                                                <span>@Model.Price</span>₺
+                                            </span>
+                                        </ins>
+                                    </p>
+
+                                    <div class="product-short-description" style="white-space: pre-line;">
+                                        <p>@Model.Description</p>
+                                        
+                                    </div><!-- /.product-short-description -->
+
+                                    <form class="cart">
+
+                                        <div class="ld-product-quantity mb-4">
+                                            <div class="quantity">
+                                                <label class="screen-reader-text">Quantity</label>
+                                                <input type="text" class="input-text qty text spinner" step="1" min="1" max="29" name="quantity" value="1" title="Qty" size="4" pattern="[0-9]*" />
+                                            </div><!-- /.quantity -->
+                                        </div><!-- /.ld-product-quantity mb-4 -->
+
+                                        <div class="ld-product-summary-foot d-flex flex-row align-items-center">
+
+                                            
+                                                <a href="https://api.whatsapp.com/send?phone=905321517566&text=Bu%20Urunu%20Satin%20Almak%20Istiyorum+@Request.Url" target="_blank" name="add-to-cart" class="single_add_to_cart_button button btn btn-solid btn-sm font-weight-bold text-uppercase ltr-sp-15">
+                                                   <span>Sipariş Ver</span>
+                                                </a>
+                                            
+
+                                            <ul class="social-icon scheme-dark">
+                                                <li>
+                                                    <a href="https://instagram.com/ayaz.promosyon">
+                                                        <i class="fa fa-instagram"></i>
+                                                    </a>
+                                                </li>
+                                            </ul>
+
+                                        </div><!-- /.ld-product-summary-foot d-flex flex-row align-items-center -->
+
+                                    </form>
+
+                                    <div class="product_meta product-meta">
+              
+                                        <span class="availability_status">
+                                            Durum:
+                                            <span class="availability stock in-stock" style="color:green">Mevcut</span>
+                                        </span>
+                                    </div><!-- /.product_meta -->
+
+                                </div><!-- /.summary entry-summary ld-product-summary -->
+                                <br />
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        
+                                    }
+                                
+                                <div class="woocommerce-tabs wc-tabs-wrapper">
+
+                                    <div class="tabs wc-tabs">
+                                    
+                                        <ul class="tabs-nav" role="tablist">
+                                            <li class="description_tab active" id="tab-title-description">
+                                                <a role="tab" aria-expanded="false" aria-controls="tab-title-description" data-toggle="tab" href="#tab-description" aria-expanded="false" aria-controls="tab-title-description" data-toggle="tab">Açıklama</a>
+                                            </li>
+                                        </ul>
+
+                                        <div class="tabs-content">
+
+                                            <div class="tabs-pane fade active in" id="tab-description" role="tabpanel">
+                                                <h2 class="mt-0">Açıklama</h2>
+                                            
+                                                <p>@Model.Description</p>
+                                            </div><!-- /.woocommerce-Tabs-panel -->
+
+                                        </div><!-- /.tabs-content -->
+
+                                    </div><!-- /.tabs wc-tabs -->
+
+                                </div><!-- /.woocommerce-tabs wc-tabs-wrapper -->
+
+
+                            </div><!-- /.product -->
+
+                        </div><!-- /.lqd-column col-md-12 -->
+
+                    </div><!-- /.row -->
+                </div><!-- /.container -->
+
+            </section>
+
+
+        <!-- /.main-footer -->
+
+    </div><!-- /#wrap -->
+
+
+
+</body>
+
+

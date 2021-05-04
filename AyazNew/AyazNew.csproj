@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -45,7 +46,19 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -120,7 +133,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MagazaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -994,6 +1010,168 @@
     <Content Include="Content\css\themes\virtus-5.css" />
     <Content Include="Content\css\themes\voguish.css" />
     <Content Include="Content\css\themes\wave.css" />
+    <Content Include="Content\img\0.jpeg" />
+    <Content Include="Content\img\0.jpg" />
+    <Content Include="Content\img\1.jpg" />
+    <Content Include="Content\img\10.jpg" />
+    <Content Include="Content\img\100.jpg" />
+    <Content Include="Content\img\101.jpg" />
+    <Content Include="Content\img\102.jpg" />
+    <Content Include="Content\img\103.jpg" />
+    <Content Include="Content\img\104.jpg" />
+    <Content Include="Content\img\105.jpg" />
+    <Content Include="Content\img\106.jpg" />
+    <Content Include="Content\img\107.jpg" />
+    <Content Include="Content\img\108.jpg" />
+    <Content Include="Content\img\109.jpg" />
+    <Content Include="Content\img\11.jpg" />
+    <Content Include="Content\img\110.jpg" />
+    <Content Include="Content\img\111.jpg" />
+    <Content Include="Content\img\112.jpg" />
+    <Content Include="Content\img\12.jpg" />
+    <Content Include="Content\img\13.jpg" />
+    <Content Include="Content\img\14.jpg" />
+    <Content Include="Content\img\15.jpg" />
+    <Content Include="Content\img\16.jpg" />
+    <Content Include="Content\img\17.jpg" />
+    <Content Include="Content\img\18.jpg" />
+    <Content Include="Content\img\19.jpg" />
+    <Content Include="Content\img\2.jpg" />
+    <Content Include="Content\img\20.jpg" />
+    <Content Include="Content\img\21.jpg" />
+    <Content Include="Content\img\22.jpg" />
+    <Content Include="Content\img\23.jpg" />
+    <Content Include="Content\img\24.jpg" />
+    <Content Include="Content\img\25.jpg" />
+    <Content Include="Content\img\26.jpg" />
+    <Content Include="Content\img\27.jpg" />
+    <Content Include="Content\img\28.jpg" />
+    <Content Include="Content\img\3.jpg" />
+    <Content Include="Content\img\30.jpeg" />
+    <Content Include="Content\img\31.jpg" />
+    <Content Include="Content\img\32.jpg" />
+    <Content Include="Content\img\33.jpg" />
+    <Content Include="Content\img\34.jpg" />
+    <Content Include="Content\img\35.jpg" />
+    <Content Include="Content\img\36.jpg" />
+    <Content Include="Content\img\37.jpg" />
+    <Content Include="Content\img\38.jpg" />
+    <Content Include="Content\img\39.jpg" />
+    <Content Include="Content\img\4.jpg" />
+    <Content Include="Content\img\40.jpg" />
+    <Content Include="Content\img\41.jpg" />
+    <Content Include="Content\img\42.jpg" />
+    <Content Include="Content\img\43.jpg" />
+    <Content Include="Content\img\44.jpg" />
+    <Content Include="Content\img\45.jpg" />
+    <Content Include="Content\img\46.jpg" />
+    <Content Include="Content\img\47.jpg" />
+    <Content Include="Content\img\48.jpg" />
+    <Content Include="Content\img\49.jpg" />
+    <Content Include="Content\img\5.jpg" />
+    <Content Include="Content\img\50.jpg" />
+    <Content Include="Content\img\51.jpg" />
+    <Content Include="Content\img\52.jpg" />
+    <Content Include="Content\img\53.jpg" />
+    <Content Include="Content\img\54.jpg" />
+    <Content Include="Content\img\55.jpg" />
+    <Content Include="Content\img\56.jpg" />
+    <Content Include="Content\img\57.jpg" />
+    <Content Include="Content\img\58.jpg" />
+    <Content Include="Content\img\59.jpg" />
+    <Content Include="Content\img\6.jpg" />
+    <Content Include="Content\img\60.jpg" />
+    <Content Include="Content\img\61.jpg" />
+    <Content Include="Content\img\62.jpg" />
+    <Content Include="Content\img\63.jpg" />
+    <Content Include="Content\img\64.jpg" />
+    <Content Include="Content\img\65.jpg" />
+    <Content Include="Content\img\66.jpg" />
+    <Content Include="Content\img\67.jpg" />
+    <Content Include="Content\img\68.jpg" />
+    <Content Include="Content\img\69.jpg" />
+    <Content Include="Content\img\7.jpg" />
+    <Content Include="Content\img\70.jpg" />
+    <Content Include="Content\img\71.jpg" />
+    <Content Include="Content\img\72.jpg" />
+    <Content Include="Content\img\73.jpg" />
+    <Content Include="Content\img\74.jpg" />
+    <Content Include="Content\img\75.jpg" />
+    <Content Include="Content\img\76.jpg" />
+    <Content Include="Content\img\77.jpg" />
+    <Content Include="Content\img\78.jpg" />
+    <Content Include="Content\img\79.jpg" />
+    <Content Include="Content\img\8.jpg" />
+    <Content Include="Content\img\80.jpg" />
+    <Content Include="Content\img\81.jpg" />
+    <Content Include="Content\img\82.jpg" />
+    <Content Include="Content\img\83.jpg" />
+    <Content Include="Content\img\84.jpg" />
+    <Content Include="Content\img\85.jpg" />
+    <Content Include="Content\img\86.jpg" />
+    <Content Include="Content\img\87.jpg" />
+    <Content Include="Content\img\88.jpg" />
+    <Content Include="Content\img\89.jpg" />
+    <Content Include="Content\img\9.jpg" />
+    <Content Include="Content\img\90.jpg" />
+    <Content Include="Content\img\91.jpg" />
+    <Content Include="Content\img\93.jpg" />
+    <Content Include="Content\img\94.jpg" />
+    <Content Include="Content\img\95.jpg" />
+    <Content Include="Content\img\96.jpg" />
+    <Content Include="Content\img\97.jpg" />
+    <Content Include="Content\img\98.jpg" />
+    <Content Include="Content\img\99.jpg" />
+    <Content Include="Content\img\banner.png" />
+    <Content Include="Content\img\c0.jpg" />
+    <Content Include="Content\img\c1.jpg" />
+    <Content Include="Content\img\c2.jpg" />
+    <Content Include="Content\img\c3.jpg" />
+    <Content Include="Content\img\c4.jpg" />
+    <Content Include="Content\img\c5.jpg" />
+    <Content Include="Content\img\c6.jpg" />
+    <Content Include="Content\img\creativeBanner.jpeg" />
+    <Content Include="Content\img\favicon.png" />
+    <Content Include="Content\img\fblogo.png" />
+    <Content Include="Content\img\instalogo.png" />
+    <Content Include="Content\img\Insta\1.PNG" />
+    <Content Include="Content\img\Insta\2.PNG" />
+    <Content Include="Content\img\Insta\3.PNG" />
+    <Content Include="Content\img\Insta\4.PNG" />
+    <Content Include="Content\img\Insta\5.PNG" />
+    <Content Include="Content\img\Insta\6.PNG" />
+    <Content Include="Content\img\lbanner.jpeg" />
+    <Content Include="Content\img\Logo.png" />
+    <Content Include="Content\img\maillogo.png" />
+    <Content Include="Content\img\mmbPart\1.jpg" />
+    <Content Include="Content\img\mmbPart\2.jpg" />
+    <Content Include="Content\img\mmbPart\3.jpg" />
+    <Content Include="Content\img\OTK\1.jpg" />
+    <Content Include="Content\img\OTK\14.jpg" />
+    <Content Include="Content\img\OTK\2.jpg" />
+    <Content Include="Content\img\OTK\3.jpg" />
+    <Content Include="Content\img\OTK\4.jpg" />
+    <Content Include="Content\img\OTK\5.jpg" />
+    <Content Include="Content\img\OTK\6.jpg" />
+    <Content Include="Content\img\OTK\7.jpg" />
+    <Content Include="Content\img\OTK\8.jpg" />
+    <Content Include="Content\img\Portfolio\max1.jpg" />
+    <Content Include="Content\img\Portfolio\max2.jpg" />
+    <Content Include="Content\img\Portfolio\max3.jpg" />
+    <Content Include="Content\img\Portfolio\max4.jpg" />
+    <Content Include="Content\img\Portfolio\min1.jpg" />
+    <Content Include="Content\img\Portfolio\min2.jpg" />
+    <Content Include="Content\img\Portfolio\min3.jpg" />
+    <Content Include="Content\img\Portfolio\min4.jpg" />
+    <Content Include="Content\img\Portfolio\min5.jpg" />
+    <Content Include="Content\img\Slider1.jpeg" />
+    <Content Include="Content\img\Slider2.jpeg" />
+    <Content Include="Content\img\Tanitim.jpeg" />
+    <Content Include="Content\img\x1.jpeg" />
+    <Content Include="Content\img\x2.jpg" />
+    <Content Include="Content\img\x3.jpg" />
+    <Content Include="Content\img\x4.jpg" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -1980,6 +2158,7 @@
     <Content Include="assets\vendors\revolution\fonts\revicons\revicons.woff" />
     <Content Include="assets\vendors\scrollmagic\.DS_Store" />
     <Content Include="assets\vendors\scrollmagic\plugins\.DS_Store" />
+    <None Include="Properties\PublishProfiles\FTPProfile.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2005,6 +2184,13 @@
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Magaza\Urunler.cshtml" />
+    <Content Include="Views\Magaza\Kategori.cshtml" />
+    <Content Include="Views\Magaza\Ara.cshtml" />
+    <Content Include="Views\Magaza\Detay.cshtml" />
+    <Content Include="Views\Magaza\Anasayfa.cshtml" />
+    <Content Include="Views\Shared\_LayoutFirst.cshtml" />
+    <Content Include="Views\Admin\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -2023,6 +2209,16 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AyazNew.Entity\AyazNew.Entity.csproj">
+      <Project>{E1456103-D9F0-462B-9D76-0AC6682EB53B}</Project>
+      <Name>AyazNew.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AyazNew.Service\AyazNew.Service.csproj">
+      <Project>{65C212B0-4B5F-4908-B93E-A6872BB0D865}</Project>
+      <Name>AyazNew.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -2057,7 +2253,10 @@
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
   </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

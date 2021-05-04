@@ -2677,6 +2677,9 @@
   .woocommerce.has-sidebar .contents-container.col-md-offset-1 {
     margin-left: 2.33333333%;
   }
+  .sidebar-container{
+      display:none;
+  }
 }
 
 /*# sourceMappingURL=theme-shop.css.map */
